@@ -9,6 +9,7 @@
 -- CLASS DECLARATION
 --# assume global class CA_UIC
 --# assume global class CORE
+--# assume global class CM
 
 
 -- TYPES
@@ -16,6 +17,10 @@
 --# "PanelOpenedCampaign"   |   "PanelClosedCampaign"   |
 --# "ComponentLClickUp"     |   "ComponentMouseOn"      |
 --# "UICreated"
+
+
+-- CAMPAIGN MANAGER
+--# assume CM.callback: method(cb: function(), time: number, id: string)
 
 
 -- CORE
@@ -32,3 +37,8 @@
 -- GLOBAL FUNCTIONS
 --# assume global is_uicomponent: function(arg: any) --> boolean
 --# assume global uicomponent_to_str: function(uic: CA_UIC) --> string
+
+ 
+-- GLOBAL VARIABLES
+--# assume global cm: CM
+--# assume global core: CORE
