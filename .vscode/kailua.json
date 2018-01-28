@@ -1,0 +1,7 @@
+{
+    "start_path": "Init.lua",
+    "preload": {
+        "open": ["lua51"],
+        "require": [".vscode/typing"]
+    }
+}
