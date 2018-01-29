@@ -7,5 +7,8 @@
 
 local Logger = require("Core/Logger").new("Main", "Init");
 
+-- UI
+require("UI/DiplomacyDropdown");
+
 
 Logger:Log("init done");
