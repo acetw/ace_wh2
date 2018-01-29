@@ -7,9 +7,11 @@
 
 
 -- CLASS DECLARATION
+--# assume global class CA_Component
 --# assume global class CA_UIC
 --# assume global class CORE
 --# assume global class CM
+--# assume global class CA_UIContext
 
 
 -- TYPES
@@ -17,6 +19,11 @@
 --# "PanelOpenedCampaign"   |   "PanelClosedCampaign"   |
 --# "ComponentLClickUp"     |   "ComponentMouseOn"      |
 --# "UICreated"
+
+
+-- CONTEXT
+--# assume CA_UIContext.component: CA_Component
+--# assume CA_UIContext.string: string
 
 
 -- CAMPAIGN MANAGER
