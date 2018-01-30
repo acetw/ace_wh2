@@ -35,9 +35,13 @@
 --# assume CA_UIC.DestroyChildren: method()
 --# assume CA_UIC.Find: method(arg: number | string) --> CA_Component
 --# assume CA_UIC.Id: method() --> string
+--# assume CA_UIC.MoveTo: method(x: number, y: number)
 --# assume CA_UIC.Resize: method(w: number, h: number)
 --# assume CA_UIC.SetInteractive: method(interactive: boolean)
 --# assume CA_UIC.SetOpacity: method(opacity: number)
+--# assume CA_UIC.SetState: method(state: string)
+--# assume CA_UIC.SetTooltipText: method(text: string)
+--# assume CA_UIC.SetVisible: method(visible: boolean)
 --# assume CA_UIC.Visible: method() --> boolean
 
 
