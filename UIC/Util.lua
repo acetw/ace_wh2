@@ -114,9 +114,9 @@ function Util.createTempUIC(path, name)
 
     if not temp then
         Logger:Error("failed to create temp uic " .. path);
-    end
-
-    Logger:Log("create temp " .. id);
+    else
+        Logger:Log("create temp " .. id);
+    end    
 
     return temp;
 end
