@@ -8,6 +8,8 @@
 local Logger = require("Core/Logger").new("UI", "DiplomacyDropdown");
 local Timer = require("Core/Timer");
 local PanelManager = require("UI/PanelManager");
+local Button = require("UIC/Button");
+local Util = require("UIC/Util");
 
 local DiplomacyDropdown = {};
 local M = {};
@@ -22,6 +24,9 @@ M.diploPanel = nil --: CA_UIC
 M.offersPanel = nil --: CA_UIC
 M.subPanel = nil --: CA_UIC
 M.factionLBox = nil --: CA_UIC
+
+M.btr = nil --: ACE_Button          -- Button trade region
+M.dummyBtr = nil --: CA_UIC         -- Dummy parent of the btr
 
 
 
@@ -103,6 +108,31 @@ end
 
 
 -- ===========================================================================
+-- Button trade region
+-- ===========================================================================
+
+function M.createBTR() 
+    local btnSet = find_uicomponent_from_table(M.offersPanel, {
+        "offers_list_panel", "button_set1"
+    })
+
+    -- Adding directly the btr to the button set will block it
+    -- We use this dummy as the button parent so we can move it
+    M.dummyBtr = Util.createDummyUIC(btnSet, "ButtonRegionTrading");
+    M.btr = Button.new("region_trading", M.dummyBtr, Button.VALID);
+
+    local x, y = btnSet:Position();
+    M.dummyBtr:MoveTo(x - 150, y + 52);
+
+    M.btr:SetTooltipText("Trade regions");
+end
+
+function M.deleteBTR() 
+    Util.delete(M.dummyBtr, true);
+end
+
+
+-- ===========================================================================
 -- Offers panel
 -- ===========================================================================
 
@@ -155,7 +185,9 @@ end
 
 function M.open()
     M.init();
-    M.initSelectedFaction();    
+    M.createBTR();
+    M.initSelectedFaction();
+
     M.loop();
 
     return true;
@@ -163,6 +195,7 @@ end
 
 function M.close()
     M.stopLoop = true;
+    M.deleteBTR();
 
     return true;
 end
