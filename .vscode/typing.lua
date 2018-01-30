@@ -27,10 +27,17 @@
 
 
 -- CA_UIC
+--# assume CA_UIC.Address: method() --> CA_Component
+--# assume CA_UIC.Adopt: method(component: CA_Component)
 --# assume CA_UIC.ChildCount: method() --> number
+--# assume CA_UIC.CreateComponent: method(name: string, path: string)
 --# assume CA_UIC.CurrentState: method() --> string
+--# assume CA_UIC.DestroyChildren: method()
 --# assume CA_UIC.Find: method(arg: number | string) --> CA_Component
 --# assume CA_UIC.Id: method() --> string
+--# assume CA_UIC.Resize: method(w: number, h: number)
+--# assume CA_UIC.SetInteractive: method(interactive: boolean)
+--# assume CA_UIC.SetOpacity: method(opacity: number)
 --# assume CA_UIC.Visible: method() --> boolean
 
 
