@@ -12,6 +12,20 @@ local PanelManager = require("UI/PanelManager");
 local M = {};
 
 
+M.diploPanel = nil --: CA_UIC
+M.offersPanel = nil --: CA_UIC
+
+
+
+
+function M.init() 
+    local root = core:get_ui_root();
+
+    M.diploPanel = UIComponent( root:Find("diplomacy_dropdown") );    
+    M.offersPanel = UIComponent( M.diploPanel:Find("offers_panel") );
+end
+
+
 -- ===========================================================================
 -- Panel functions
 -- ===========================================================================
@@ -21,11 +35,17 @@ function M.click(context)
 
 end
 
-function M.open() 
+function M.open()
+    M.init();
+
+    M.offersPanel:SetVisible(false);
+
     return true;
 end
 
-function M.close() 
+function M.close()
+    M.offersPanel:SetVisible(true);
+
     return true;
 end
 

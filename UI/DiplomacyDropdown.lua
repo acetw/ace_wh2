@@ -154,9 +154,11 @@ end
 
 
 function M.watchOffersPanel()
+    -- The region trading frame will hide the panel so we ignore it
+    if PanelManager.isOpened("RegionTrading") then return end
+
     -- When making an offer, a subpanel will pop up hiding the panel
-    -- This need to be ignore since the panel is still opened
-    
+    -- This need to be ignore since the panel is still opened    
     local open = M.offersOpened;
     local visible = M.offersPanel:Visible();
     local subPanel = M.subPanel:Visible();
