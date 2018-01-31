@@ -39,6 +39,8 @@
 --# assume CA_UIC.Position: method() --> (number, number)
 --# assume CA_UIC.PropagatePriority: method(priority: number)
 --# assume CA_UIC.Resize: method(w: number, h: number)
+--# assume CA_UIC.SetCanResizeHeight: method(canResize: boolean)
+--# assume CA_UIC.SetCanResizeWidth: method(canResize: boolean)
 --# assume CA_UIC.SetInteractive: method(interactive: boolean)
 --# assume CA_UIC.SetOpacity: method(opacity: number)
 --# assume CA_UIC.SetState: method(state: string)

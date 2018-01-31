@@ -48,6 +48,11 @@ function MenuFrame.new(parent, name)
     self.parchment = parchment --: const CA_UIC
     self.bar = bar --: const CA_UIC
 
+    self.uic:SetCanResizeWidth(true);
+    self.uic:SetCanResizeHeight(true);
+    self.parchment:SetCanResizeWidth(true);
+    self.parchment:SetCanResizeHeight(true);
+    self.bar:SetCanResizeWidth(true);
 
     Logger:Log("create " .. tostring(self));
     return self;
