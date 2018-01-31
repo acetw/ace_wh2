@@ -10,7 +10,7 @@
 --# type local CB_UI = function(context: CA_UIContext)
 
 --# type local PanelName = 
---# "DiplomacyDropdown"
+--# "DiplomacyDropdown"         | "RegionTrading"
 
 
 local Logger = require("Core/Logger").new("UI", "PanelManager");

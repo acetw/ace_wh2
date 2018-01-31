@@ -125,6 +125,10 @@ function M.createBTR()
     M.dummyBtr:MoveTo(x - 150, y + 52);
 
     M.btr:SetTooltipText("Trade regions");
+
+    M.btr:On("click", function() 
+        PanelManager.open("RegionTrading");
+    end)
 end
 
 function M.deleteBTR() 
