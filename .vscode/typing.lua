@@ -33,6 +33,7 @@
 --# assume CA_UIC.CreateComponent: method(name: string, path: string)
 --# assume CA_UIC.CurrentState: method() --> string
 --# assume CA_UIC.DestroyChildren: method()
+--# assume CA_UIC.Dimensions: method() --> (number, number)
 --# assume CA_UIC.Find: method(arg: number | string) --> CA_Component
 --# assume CA_UIC.Id: method() --> string
 --# assume CA_UIC.MoveTo: method(x: number, y: number)
