@@ -11,7 +11,7 @@ local PanelManager = require("UI/PanelManager");
 local Button = require("UIC/Button");
 local Util = require("UIC/Util");
 
-local DiplomacyDropdown = {};
+
 local M = {};
 
 
@@ -211,6 +211,3 @@ PanelManager.register(
     M.close,
     M.click
 )
-
-
-return DiplomacyDropdown
