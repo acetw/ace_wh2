@@ -71,8 +71,8 @@ function M.click(context)
     local id = tostring(context.component);
 
     if M.callback.click[id] then
-        M.callback.click[id]();
         Logger:Log("trigger click event for " .. id);
+        M.callback.click[id]();        
     end
 end
 
@@ -83,13 +83,13 @@ function M.mouseOver(context)
     -- trigger the exit callback
     local lastID = M.lastOverID;
     if lastID and M.callback.exit[lastID] then
-        M.callback.exit[lastID]();
         Logger:Log("trigger exit event for " .. id);
+        M.callback.exit[lastID]();        
     end
 
     if M.callback.over[id] then
-        M.callback.over[id]();
         Logger:Log("trigger mouse over event for " .. id);
+        M.callback.over[id]();        
     end
 
     M.lastOverID = id;
