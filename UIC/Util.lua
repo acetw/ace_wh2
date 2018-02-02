@@ -25,9 +25,9 @@ M.garbage = nil     --: CA_UIC  -- dummy uic used to delete
 
 
 
-function M.init() 
+function M.init()
     local root = core:get_ui_root();
-    
+
     root:CreateComponent("ACEGarbage", "UI/Campaign UI/script_dummy");
     M.garbage = UIComponent( root:Find("ACEGarbage") );
 
@@ -42,9 +42,9 @@ Event.addListener("UICreated", M.init);
 -- ===========================================================================
 
 --v function(uic: CA_UIC, e: UIC_EventName, cb: function())
-function Util.addListener(uic, e, cb) 
+function Util.addListener(uic, e, cb)
     -- use the component address as unique id
-    local id = tostring(uic:Address());    
+    local id = tostring(uic:Address());
     M.callback[e][id] = cb;
 end
 
@@ -61,35 +61,35 @@ function Util.removeListener(uic, recursive)
     if uic:ChildCount() == 0 then return end
 
     for i = 0, uic:ChildCount() - 1 do
-        local child = UIComponent(uic:Find(i));        
+        local child = UIComponent(uic:Find(i));
         Util.removeListener(child, true);
     end
 end
 
 --v function(context: CA_UIContext)
-function M.click(context)    
+function M.click(context)
     local id = tostring(context.component);
 
     if M.callback.click[id] then
         Logger:Log("trigger click event for " .. id);
-        M.callback.click[id]();        
+        M.callback.click[id]();
     end
 end
 
 --v function(context: CA_UIContext)
-function M.mouseOver(context) 
+function M.mouseOver(context)
     local id = tostring(context.component);
-    
+
     -- trigger the exit callback
     local lastID = M.lastOverID;
     if lastID and M.callback.exit[lastID] then
         Logger:Log("trigger exit event for " .. id);
-        M.callback.exit[lastID]();        
+        M.callback.exit[lastID]();
     end
 
     if M.callback.over[id] then
         Logger:Log("trigger mouse over event for " .. id);
-        M.callback.over[id]();        
+        M.callback.over[id]();
     end
 
     M.lastOverID = id;
@@ -116,7 +116,7 @@ function Util.createTempUIC(path, name)
         Logger:Error("failed to create temp uic " .. path);
     else
         Logger:Log("create temp " .. id);
-    end    
+    end
 
     return temp;
 end
@@ -141,9 +141,9 @@ end
 
 
 --v function(uic: CA_UIC, removeCB: boolean?)
-function Util.delete(uic, removeCB) 
+function Util.delete(uic, removeCB)
     local id = uic:Id();
-    
+
     if removeCB then
         Util.removeListener(uic, true);
     end

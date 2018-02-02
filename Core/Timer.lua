@@ -19,7 +19,7 @@ function M.getCallbackId()
     else
         M.id = M.id + 1;
     end
-    
+
     return M.callbackID..tostring(M.id);
 end
 

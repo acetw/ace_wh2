@@ -30,8 +30,8 @@ Button.CANCEL = "button_cancel" --: const ButtonTypes
 
 
 --v function(name: string, parent: CA_UIC, btnType: ButtonTypes) --> ACE_Button
-function Button.new(name, parent, btnType) 
-    local temp = Util.createTempUIC("ui/bin/button/" .. name);    
+function Button.new(name, parent, btnType)
+    local temp = Util.createTempUIC("ui/bin/button/" .. name);
     local button = find_uicomponent_from_table(temp, {
         "hud_center_docker", "ok_cancel_buttongroup", btnType
     })
@@ -55,12 +55,12 @@ end
 
 
 --v function(self: ACE_Button)
-function Button.Delete(self) 
+function Button.Delete(self)
     Util.delete(self.uic, true);
 end
 
 --v function(self: ACE_Button, x: number, y :number)
-function Button.MoveTo(self, x, y) 
+function Button.MoveTo(self, x, y)
     self.uic:MoveTo(x, y);
 end
 
@@ -70,12 +70,12 @@ function Button.On(self, e, cb)
 end
 
 --v function(self: ACE_Button, state: string)
-function Button.SetState(self, state) 
+function Button.SetState(self, state)
     self.uic:SetState(state);
 end
 
---v function(self: ACE_Button, text: string) 
-function Button.SetTooltipText(self, text) 
+--v function(self: ACE_Button, text: string)
+function Button.SetTooltipText(self, text)
     local saved = self.uic:CurrentState();
 
     -- Make sure the default tooltip will be replace
@@ -90,7 +90,7 @@ function Button.SetTooltipText(self, text)
 end
 
 --v function(self: ACE_Button, visible: boolean)
-function Button.SetVisible(self, visible) 
+function Button.SetVisible(self, visible)
     self.uic:SetVisible(visible);
 end
 

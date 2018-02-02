@@ -14,7 +14,7 @@ local MenuFrame = {} --# assume MenuFrame: ACE_MenuFrame
 
 
 --v function(parent: CA_UIC, name: string) --> ACE_MenuFrame
-function MenuFrame.new(parent, name) 
+function MenuFrame.new(parent, name)
     -- UIC
     local frame = Util.createTempUIC("UI/Campaign UI/finance_screen", name);
 
@@ -60,17 +60,17 @@ end
 
 
 --v function(self: ACE_MenuFrame)
-function MenuFrame.Delete(self) 
+function MenuFrame.Delete(self)
     Util.delete(self.uic, true);
 end
 
 --v function(self: ACE_MenuFrame, priority: number)
-function MenuFrame.PropagatePriority(self, priority) 
+function MenuFrame.PropagatePriority(self, priority)
     self.uic:PropagatePriority(priority);
 end
 
 --v function(self: ACE_MenuFrame, w: number, h: number)
-function MenuFrame.Resize(self, w, h) 
+function MenuFrame.Resize(self, w, h)
     self.uic:Resize(w, h);
     self.parchment:Resize(w - 25, h + 25);
     self.bar:Resize(w + 85, h);

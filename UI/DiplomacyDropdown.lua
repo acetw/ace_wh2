@@ -31,7 +31,7 @@ M.dummyBtr = nil --: CA_UIC         -- Dummy parent of the btr
 
 
 
-function M.init() 
+function M.init()
     -- Reset module vars
     M.offersOpened = false;
     M.stopLoop = false;
@@ -39,9 +39,9 @@ function M.init()
 
     -- Set uic var
     local root = core:get_ui_root();
-    
+
     M.diploPanel = UIComponent(root:Find("diplomacy_dropdown"));
-    M.offersPanel = UIComponent(M.diploPanel:Find("offers_panel"));    
+    M.offersPanel = UIComponent(M.diploPanel:Find("offers_panel"));
     M.subPanel = UIComponent(M.diploPanel:Find("subpanel_group"));
 
     M.factionLBox = find_uicomponent_from_table(M.diploPanel, {
@@ -59,14 +59,14 @@ function M.getFactionFromItem(item)
     return string.gsub(item:Id(), "faction_row_entry_", "");
 end
 
-function M.initSelectedFaction() 
+function M.initSelectedFaction()
     -- If the player open the offers panel wihtout selected a faction
     -- the game select the first faction of the lbox by default
     --
-    -- This need to be checked on the panel opening since 
+    -- This need to be checked on the panel opening since
     -- the list can be sorted differently withtout selected a faction
     -- making any list check later on useless
-    
+
     Timer.nextTick(function()
         -- selectedFaction may already be define by updateSelectedFaction()
         -- if the player open the offers panel by double clicking
@@ -87,8 +87,8 @@ function M.initSelectedFaction()
     end)
 end
 
-function M.updateSelectedFaction() 
-    -- Cycle through the faction lbox to find the selected faction 
+function M.updateSelectedFaction()
+    -- Cycle through the faction lbox to find the selected faction
     for i = 0, M.factionLBox:ChildCount() - 1 do
         local item = UIComponent(M.factionLBox:Find(i));
         local child = UIComponent(item:Find(0));
@@ -104,7 +104,7 @@ function M.updateSelectedFaction()
                 break;
             end
         end
-    end    
+    end
 end
 
 
@@ -112,7 +112,7 @@ end
 -- Button trade region
 -- ===========================================================================
 
-function M.createBTR() 
+function M.createBTR()
     local btnSet = find_uicomponent_from_table(M.offersPanel, {
         "offers_list_panel", "button_set1"
     })
@@ -127,12 +127,12 @@ function M.createBTR()
 
     M.btr:SetTooltipText("Trade regions");
 
-    M.btr:On("click", function() 
+    M.btr:On("click", function()
         PanelManager.open("RegionTrading");
     end)
 end
 
-function M.deleteBTR() 
+function M.deleteBTR()
     Util.delete(M.dummyBtr, true);
 end
 
@@ -143,7 +143,7 @@ end
 
 function M.openOffersPanel()
     M.updateSelectedFaction();
-    
+
     M.offersOpened = true;
     Logger:Log("open offers panel");
 end
@@ -159,7 +159,7 @@ function M.watchOffersPanel()
     if PanelManager.isOpened("RegionTrading") then return end
 
     -- When making an offer, a subpanel will pop up hiding the panel
-    -- This need to be ignore since the panel is still opened    
+    -- This need to be ignore since the panel is still opened
     local open = M.offersOpened;
     local visible = M.offersPanel:Visible();
     local subPanel = M.subPanel:Visible();
@@ -181,7 +181,7 @@ function M.loop()
 
     -- Catch the opening/closing of the offers panel
     M.watchOffersPanel();
-    
+
     Timer.nextTick(M.loop);
 end
 

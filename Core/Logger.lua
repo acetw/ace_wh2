@@ -19,20 +19,20 @@ M.filePath = "data/ace_log.txt" --: string
 
 
 --v function(str: string)
-function M.write(str) 
+function M.write(str)
     if M.consoleMode then
-        if #M.lines > M.maxLines then 
+        if #M.lines > M.maxLines then
             table.remove(M.lines, 1);
         end
-        
+
         table.insert(M.lines, str);
 
         local file = io.open(M.filePath,"w+");
-        local c = #M.lines;        
+        local c = #M.lines;
         for i = 0, c - 1 do
             file:write(M.lines[c - i].."\n");
         end
-        
+
         file:close();
     else
         local file = io.open(M.filePath,"a+");
@@ -43,7 +43,7 @@ end
 
 
 --v function(package: string, file: string) --> ACE_Logger
-function Logger.new(package, file) 
+function Logger.new(package, file)
     local self = {};
 
     setmetatable(self, {
@@ -59,9 +59,9 @@ end
 
 
 --v function(arg: any)
-function Logger.print(arg) 
+function Logger.print(arg)
     local str --: string
-    
+
     if is_uicomponent(arg) then
         --# assume arg: CA_UIC
         str = uicomponent_to_str(arg);
@@ -78,17 +78,17 @@ function Logger.printTable(t)
     --# assume t: map<number | string, any>
 
     M.write("\n###### "..tostring(t).." ######");
-    
+
     for k, v in pairs(t) do
         M.write("\t"..k.." => "..tostring(v));
     end
-    
+
     M.write("###### "..tostring(t).." ######\n");
 end
 
 
 --v function(self: ACE_Logger, arg: any)
-function Logger.Log(self, arg) 
+function Logger.Log(self, arg)
     if not M.enableLog then return end
 
     local time = os.date("%H:%M.%S");
@@ -100,7 +100,7 @@ function Logger.Log(self, arg)
 end
 
 --v function(self: ACE_Logger, arg: any)
-function Logger.Error(self, arg) 
+function Logger.Error(self, arg)
     local str = "##### ERROR ##### "..self.id..tostring(arg);
     M.write(str);
 end

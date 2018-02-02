@@ -9,7 +9,7 @@
 --# type local CB_Bool = function() --> boolean
 --# type local CB_UI = function(context: CA_UIContext)
 
---# type local PanelName = 
+--# type local PanelName =
 --# "DiplomacyDropdown"         | "RegionTrading"
 
 
@@ -30,20 +30,20 @@ M.panels = {} --: map<string, ACE_Panel>        -- Panel collection
 -- ===========================================================================
 
 --v function(name: PanelName, cbOpen: CB_Bool, cbClose: CB_Bool, cbClick: CB_UI)
-function PanelManager.register(name, cbOpen, cbClose, cbClick)    
+function PanelManager.register(name, cbOpen, cbClose, cbClick)
     local self = {};
-    
+
     setmetatable(self, {
         __index = Panel,
         __tostring = function() return "ACE PANEL: "..name end
     }) --# assume self: ACE_Panel
-    
+
 
     self.name = name        --: const
-    self.cbOpen = cbOpen    --: const 
+    self.cbOpen = cbOpen    --: const
     self.cbClose = cbClose  --: const
     self.cbClick = cbClick  --: const
-    self.clickID = nil      --: string  -- event handler id    
+    self.clickID = nil      --: string  -- event handler id
     self.opened = false     --: boolean -- is this panel opened ?
 
     M.panels[name] = self;
@@ -89,7 +89,7 @@ end
 -- ===========================================================================
 
 --v function(name: PanelName) --> ACE_Panel
-function M.getPanel(name) 
+function M.getPanel(name)
     if not M.panels[name] then
         Logger:Error("trying to get a non-existent panel: " .. name);
     end
@@ -98,7 +98,7 @@ function M.getPanel(name)
 end
 
 --v function(name: PanelName)
-function PanelManager.open(name) 
+function PanelManager.open(name)
     M.getPanel(name):Open();
 end
 

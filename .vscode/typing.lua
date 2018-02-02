@@ -15,7 +15,7 @@
 
 
 -- TYPES
---# type global CA_EventName = 
+--# type global CA_EventName =
 --# "PanelOpenedCampaign"   |   "PanelClosedCampaign"   |
 --# "ComponentLClickUp"     |   "ComponentMouseOn"      |
 --# "UICreated"
@@ -73,7 +73,7 @@
 --# assume global UIComponent: function(pointer: CA_Component) --> CA_UIC
 --# assume global uicomponent_to_str: function(uic: CA_UIC) --> string
 
- 
+
 -- GLOBAL VARIABLES
 --# assume global cm: CM
 --# assume global core: CORE

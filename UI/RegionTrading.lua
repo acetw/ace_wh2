@@ -20,10 +20,10 @@ M.offersPanel = nil --: CA_UIC
 
 
 
-function M.init() 
+function M.init()
     local root = core:get_ui_root();
 
-    M.diploPanel = UIComponent( root:Find("diplomacy_dropdown") );    
+    M.diploPanel = UIComponent( root:Find("diplomacy_dropdown") );
     M.offersPanel = UIComponent( M.diploPanel:Find("offers_panel") );
 end
 
@@ -32,7 +32,7 @@ end
 -- Region trading frame
 -- ===========================================================================
 
-function M.createFrame() 
+function M.createFrame()
     M.frame = MenuFrame.new(M.diploPanel, "RegionTradingFrame");
 
     M.frame:PropagatePriority(250);
@@ -40,7 +40,7 @@ function M.createFrame()
     M.frame:SetTitle("Trade regions");
 end
 
-function M.deleteFrame() 
+function M.deleteFrame()
     M.frame:Delete();
 end
 
@@ -50,7 +50,7 @@ end
 -- ===========================================================================
 
 --v function(context: CA_UIContext)
-function M.click(context) 
+function M.click(context)
     -- temp
     PanelManager.close("RegionTrading");
 end

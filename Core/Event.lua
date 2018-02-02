@@ -17,7 +17,7 @@ M.prefix = "ACE_EH";
 --v function(e: CA_EventName, cb: function(context: WHATEVER?)) --> string
 function Event.addListener(e, cb)
     local handlerID = e..tostring(M.id);
-    M.id = M.id + 1;    
+    M.id = M.id + 1;
 
     core:add_listener(M.prefix..handlerID, e, true, cb, true);
     Logger:Log("add listener "..handlerID);
