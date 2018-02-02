@@ -65,11 +65,12 @@ function M.initSelectedFaction()
     --
     -- This need to be checked on the panel opening since 
     -- the list can be sorted differently withtout selected a faction
-    -- making any list check on offers panel opening useless
+    -- making any list check later on useless
     
     Timer.nextTick(function()
-        -- selectedFaction may already be define if the player open the offers
-        -- panel by double clicking on a faction in the campaign map
+        -- selectedFaction may already be define by updateSelectedFaction()
+        -- if the player open the offers panel by double clicking
+        -- on a faction in the campaign map
         if M.selectedFaction ~= nil then return end
 
         -- Check the first two items in case the list is sorted by races
