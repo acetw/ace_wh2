@@ -8,6 +8,7 @@
 local Logger = require("Core/Logger").new("UI", "RegionTrading");
 local PanelManager = require("UI/PanelManager");
 local MenuFrame = require("UIC/MenuFrame");
+local Button = require("UIC/Button");
 
 
 local M = {};
@@ -38,6 +39,21 @@ function M.createFrame()
     M.frame:PropagatePriority(250);
     M.frame:Resize(M.offersPanel:Dimensions());
     M.frame:SetTitle("Trade regions");
+
+    -- Buttons
+    local valid = Button.new("valid", M.frame.uic, Button.VALID);
+    local cancel = Button.new("cancel", M.frame.uic, Button.CANCEL);
+
+    valid:SetTooltipText("Valid");
+    cancel:SetTooltipText("Cancel");
+
+    valid:On("click", function()
+        PanelManager.close("RegionTrading");
+    end)
+
+    cancel:On("click", function()
+        PanelManager.close("RegionTrading");
+    end)
 end
 
 function M.deleteFrame()
@@ -51,8 +67,7 @@ end
 
 --v function(context: CA_UIContext)
 function M.click(context)
-    -- temp
-    PanelManager.close("RegionTrading");
+
 end
 
 function M.open()
