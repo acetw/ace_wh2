@@ -60,15 +60,15 @@ function M.getFactionFromItem(item)
 end
 
 function M.initSelectedFaction()
-    -- If the player open the offers panel wihtout selected a faction
+    -- If the player open the offers panel without selected a faction
     -- the game select the first faction of the lbox by default
     --
     -- This need to be checked on the panel opening since
-    -- the list can be sorted differently withtout selected a faction
+    -- the list can be sorted differently without selected a faction
     -- making any list check later on useless
 
     Timer.nextTick(function()
-        -- selectedFaction may already be define by updateSelectedFaction()
+        -- selectedFaction may already be defined by updateSelectedFaction()
         -- if the player open the offers panel by double clicking
         -- on a faction in the campaign map
         if M.selectedFaction ~= nil then return end
