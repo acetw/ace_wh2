@@ -7,6 +7,7 @@
 
 local Logger = require("Core/Logger").new("UI", "DiplomacyDropdown");
 local Timer = require("Core/Timer");
+local RTLogic = require("Logic/RegionTrading");
 local PanelManager = require("UI/PanelManager");
 local Button = require("UIC/Button");
 local Util = require("UIC/Util");
@@ -136,6 +137,14 @@ function M.deleteBTR()
     Util.delete(M.dummyBtr, true);
 end
 
+function M.updateBTR()
+    if RTLogic.canTrade() then
+        M.btr:SetState("active");
+    else
+        M.btr:SetState("inactive");
+    end
+end
+
 
 -- ===========================================================================
 -- Offers panel
@@ -143,6 +152,8 @@ end
 
 function M.openOffersPanel()
     M.updateSelectedFaction();
+    RTLogic.setAI(M.selectedFaction);
+    M.updateBTR();
 
     M.offersOpened = true;
     Logger:Log("open offers panel");
