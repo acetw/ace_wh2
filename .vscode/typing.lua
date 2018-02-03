@@ -53,6 +53,7 @@
 
 -- CAMPAIGN MANAGER
 --# assume CM.callback: method(cb: function(), time: number, id: string)
+--# assume CM.get_local_faction: method() --> string
 
 
 -- CORE

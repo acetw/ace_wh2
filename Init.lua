@@ -7,6 +7,12 @@
 
 local Logger = require("Core/Logger").new("Main", "Init");
 
+
+-- Model
+require("Model");
+require("Model/Faction");
+
+
 -- UI
 require("UI/DiplomacyDropdown");
 require("UI/RegionTrading");

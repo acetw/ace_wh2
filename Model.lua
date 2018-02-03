@@ -7,6 +7,12 @@
 -- ===========================================================================
 
 --# assume global class ACE_Model
+--# assume global class ACE_Faction
+
+
+-- Model/Faction
+--# assume ACE_Faction.getFaction: function(name: string) --> ACE_Faction
+--# assume ACE_Faction.getPlayer: function() --> ACE_Faction
 
 
 local Model = {} --# assume Model: ACE_Model
