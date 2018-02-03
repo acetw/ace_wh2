@@ -42,6 +42,27 @@ end
 
 
 -- ===========================================================================
+-- Faction class methods
+-- ===========================================================================
+
+--v function(self: ACE_Faction) --> CA_Faction
+function Faction.cai(self)
+    return cm:model():world():faction_by_key(self.name);
+end
+
+
+--v function(self: ACE_Faction, faction: ACE_Faction) --> boolean
+function Faction.AtWarWith(self, faction)
+    return self:cai():at_war_with(faction.name);
+end
+
+--v function(self:ACE_Faction) --> boolean
+function Faction.IsHorde(self)
+    return self:cai():is_horde();
+end
+
+
+-- ===========================================================================
 -- Model functions
 -- ===========================================================================
 

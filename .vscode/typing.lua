@@ -7,6 +7,9 @@
 
 
 -- CLASS DECLARATION
+--# assume global class CA_Model
+--# assume global class CA_World
+--# assume global class CA_Faction
 --# assume global class CA_Component
 --# assume global class CA_UIC
 --# assume global class CORE
@@ -24,6 +27,19 @@
 -- CONTEXT
 --# assume CA_UIContext.component: CA_Component
 --# assume CA_UIContext.string: string
+
+
+-- CA_Model
+--# assume CA_Model.world: method() --> CA_World
+
+
+-- CA_World
+--# assume CA_World.faction_by_key: method(key: string) --> CA_Faction
+
+
+-- CA_Faction
+--# assume CA_Faction.at_war_with: method(faction: string) --> boolean
+--# assume CA_Faction.is_horde: method() --> boolean
 
 
 -- CA_UIC
@@ -54,6 +70,7 @@
 -- CAMPAIGN MANAGER
 --# assume CM.callback: method(cb: function(), time: number, id: string)
 --# assume CM.get_local_faction: method() --> string
+--# assume CM.model: method() --> CA_Model
 
 
 -- CORE
