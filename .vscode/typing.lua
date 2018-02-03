@@ -38,7 +38,7 @@
 
 
 -- CA_Faction
---# assume CA_Faction.at_war_with: method(faction: string) --> boolean
+--# assume CA_Faction.at_war_with: method(faction: CA_Faction) --> boolean
 --# assume CA_Faction.is_horde: method() --> boolean
 
 

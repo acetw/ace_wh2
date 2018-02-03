@@ -53,7 +53,7 @@ end
 
 --v function(self: ACE_Faction, faction: ACE_Faction) --> boolean
 function Faction.AtWarWith(self, faction)
-    return self:cai():at_war_with(faction.name);
+    return self:cai():at_war_with(faction:cai());
 end
 
 --v function(self:ACE_Faction) --> boolean
