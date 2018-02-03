@@ -13,6 +13,10 @@ require("Model");
 require("Model/Faction");
 
 
+-- Logic
+require("Logic/RegionTrading");
+
+
 -- UI
 require("UI/DiplomacyDropdown");
 require("UI/RegionTrading");
