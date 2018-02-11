@@ -10,7 +10,7 @@ local M = {};
 
 
 M.id = 0;
-M.callbackID = "HCE_Callback";
+M.callbackID = "ACE_Callback";
 
 
 function M.getCallbackId()
